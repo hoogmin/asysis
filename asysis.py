@@ -24,10 +24,18 @@ def get_sys_hostname():
     return socket.gethostname()
 
 def get_os():
-    return "{} {}".format(platform.system(), platform.release())
+    os_name = platform.system()
+    if os_name == "Linux":
+        return "GNU/Linux"
+    else:
+        return os_name
 
 def get_sys_kernel():
-    return platform.version()
+    if platform.system() == "Windows":
+        return platform.version()
+    else:
+        # version will yield a different value on Linux, so release is used
+        return platform.release()
 
 def get_machine_type():
     return platform.machine()
@@ -38,6 +46,12 @@ def get_cpu_type():
 def get_num_cpus():
     return multiprocessing.cpu_count()
 
+def get_python_ver():
+    return platform.python_version()
+
+def get_python_impl():
+    return platform.python_implementation()
+
 # A dictionary for storing processed system info
 sysinfo = {
     "username": get_sys_username(),
@@ -46,7 +60,9 @@ sysinfo = {
     "kernel": get_sys_kernel(),
     "machine_type": get_machine_type(),
     "processor_type": get_cpu_type(),
-    "num_cpus": get_num_cpus()
+    "num_cpus": get_num_cpus(),
+    "python_ver": get_python_ver(),
+    "python_impl": get_python_impl()
 }
 
 def display_info_full():
@@ -59,6 +75,7 @@ def display_info_full():
     print("Architecture: {}".format(sysinfo["machine_type"]))
     print("Processor Type: {}".format(sysinfo["processor_type"]))
     print("Number of CPUs: {}".format(sysinfo["num_cpus"]))
+    print("Runtime Version: {} ({})".format(sysinfo["python_ver"], sysinfo["python_impl"]))
 
 
 
