@@ -16,7 +16,7 @@ only need the following requirements:
 Yes, its as simple as that. If you are a MacOS or GNU/Linux user, then your machine already has a version
 of `python` pre-installed. For Windows users, `python` can be downloaded at the [official python site](https://www.python.org/)
 through an installer found under the "downloads" section of the site. Once you have `python` you only need to download the project
-to your machine. This can be accomplised by using github and downloading the repo as a compressed zip file (simple way) or through
+to your machine. This can be accomplished by using github and downloading the repo as a compressed zip file (simple way) or through
 `git clone` (if you are familiar with `git`). After extracting the zip file of the project, place it anywhere you like on your
 machine. Finally, when you decide you want to see your system information, `cd` into the location where you keep `asysis.py`
 and run:
